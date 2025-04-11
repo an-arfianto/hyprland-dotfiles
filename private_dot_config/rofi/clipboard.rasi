@@ -1,0 +1,127 @@
+// Config //
+configuration {
+    modi:                        "drun,filebrowser,window,run";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+    window-format:               "{w}{t}";
+    font:                        "JetBrainsMono Nerd Font 10";
+} 
+
+@import "shared/mocha.rasi"
+
+// Main //
+window {
+    height:                      500px;
+    width:                       800px;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0;
+    padding:                     0;
+    border:                      1px solid;
+    border-radius:               15px;
+    border-color:                @main-br;
+    background-color:            @main-bg;
+}
+mainbox {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     0em;
+    orientation:                 horizontal;
+    children:                    [ "listbox" ];
+    background-color:            transparent;
+}
+
+// Inputs //
+inputbar {
+    enabled:                     true;
+    children:                    [ textbox-prompt-colon, entry ];
+    spacing:                     0em;
+    padding:                     0em;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+}
+
+textbox-prompt-colon {
+  	enabled:                     true;
+  	padding:                     5px 10px;
+    expand:                      false;
+    str:                         "clipboard";
+    text-align:                  center;
+    cursor:                      default;
+    background-color:            transparent;
+    text-color:                  @select-fg;
+    border:	                     2px solid;
+    border-radius:               5px 0px 0px 5px;
+    border-color:                @main-br;
+    background-color:            @main-br;
+}
+
+entry {
+    enabled:                     true;
+    padding:                     5px;
+    cursor:                      text;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+    border:                      2px solid;
+    border-radius:               0px 5px 5px 0px;
+    border-color:                @main-br;
+    background-color:            @main-bg;
+}
+
+
+// Lists //
+listbox {
+    spacing:                     5px;
+    padding:                     20px;
+    children:                    [ "inputbar" , "listview" ];
+    background-color:            transparent;
+}
+listview {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     0em;
+    columns:                     2;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    expand:                      false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+    text-color:                  @main-fg;
+}
+
+// Elements //
+element {
+    enabled:                     true;
+    spacing:                     0px;
+    padding:                     0.4em;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+}
+element selected.normal {
+    background-color:            @select-bg;
+    text-color:                  @select-fg;
+    border-radius:               15px;
+}
+element-icon {
+    size:                        2.8em;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
