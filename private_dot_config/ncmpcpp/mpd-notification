@@ -1,0 +1,3 @@
+#!/bin/bash
+SONG="$(mpc current)"
+notify-send -i ~/.icons/Catppuccin-SE/symbolic/emblems/emblem-music-symbolic.svg -u low -t 1000 "Now playing:" "$SONG"

@@ -1,0 +1,7 @@
+--theme="Catppuccin Mocha"
+--italic-text=always
+--style=full
+--color=always
+--decorations=always
+--paging=never
+--map-syntax ".ignore:Git Ignore"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+theme="$HOME/.config/rofi/launchers"
+
+## Run
+rofi \
+  -show drun \
+  -theme ${theme}.rasi -sorting-method fzf
