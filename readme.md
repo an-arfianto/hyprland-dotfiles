@@ -1,15 +1,45 @@
 # Personal Hyprland Dotfiles
 
+- Distro • EndeavourOS
 - Window Manager • Hyprland
-- Lockscreen  • hyplock
+- Lockscreen • hyplock
 - Shell • zsh with Starship + ohmyzsh
 - Terminal • Kitty
 - Panel • Waybar
 - Notify Daemon • Dunst
 - Launcher • Rofi
-- TUI File Manager • yazi 
-- GUI File Manager • pcmanfm-qt
-- Text Editor • Visual Studio Code + Neovim with LazyVim
-- Dotfiles Manager • chezmoi
-- Colorschemes • Catppuccin Mocha
+- File Manager • yazi + nemo
+- Text Editor • Neovim with LazyVim
+- Colorschemes • Rose Pine + Rose Pine Dawn
 
+install package
+
+System
+``` bash
+yay -S hyprland hyprlock hypridle hyprpicker dunst rofi-wayland waybar swww grimblast-git slurp cliphist polkit-gnome xdg-desktop-portal-hyprland pacman-contrib parallel imagemagick libnotify bluez bluez-utils brightnessctl udiskie networkmanager network-manager-applet pamixer mpd mpc
+```
+
+Theming 
+``` bash
+yay -S qt5ct qt6ct kvantum kvantum-qt5 qt5-wayland qt6-wayland 
+```
+
+GUI apps
+``` bash
+yay -S blueman kitty nemo nemo-fileroller mpv nwg-look nwg-displays pavucontrol qimgv-git visual-studio-code-bin waypaper zathura zathura-pdf-mupdf
+```
+
+TUI/CLI
+``` bash
+yay -S atuin fzf fastfetch jq neovim zsh eza lazygit starship tmux bat btop ncmpcpp television zoxide
+```
+
+Font (Nerd Font)
+``` bash
+yay -S ttf-iosevka-nerd ttf-jetbrains-mono-nerd ttf-victor-mono-nerd 
+```
+
+Audio Service
+``` bash
+yay -S wireplumber gst-plugin-pipewire pipewire pipewire-alsa pipewire-audio pipewire-jack pipewire-pulse
+```
