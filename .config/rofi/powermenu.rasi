@@ -1,0 +1,157 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+@import                          "shared/colors.rasi"
+@import                          "shared/fonts.rasi"
+
+/*
+USE_BUTTONS=YES
+*/
+
+/*****----- Main Window -----*****/
+window {
+    /* properties for window widget */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       800px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    /* properties for all widgets */
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      1px solid;
+    border-radius:               15px;
+    border-color:                @cur;
+    cursor:                      "default";
+    background-color:            @bg;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     15px;
+    margin:                      0px;
+    padding:                     30px;
+    border:                      0px solid;
+    border-radius:               0px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     100px;
+    border:                      0px;
+    border-radius:               15px;
+    background-color:            transparent;
+    background-image:            url("~/Pictures/wallpaper/sword.jpg", width);
+    text-color:                  @fgd;
+    children:                    [ "dummy", "prompt", "dummy" ];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+prompt {
+    enabled:                     true;
+    padding:                     10px;
+    border-radius:               100%;
+    background-color:            @bg;
+    text-color:                  @fgd;
+}
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     12px;
+    border:                      0px solid;
+    border-radius:               100%;
+    background-color:            @cur;
+    text-color:                  @fgd;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    placeholder-color:           @fgd;
+    blink:                       true;
+    markup:                      true;
+}
+error-message {
+    padding:                     12px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @red;
+    background-color:            @cur;
+    text-color:                  @fgd;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     15px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @cya;
+    background-color:            transparent;
+    text-color:                  @fgd;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     40px 10px;
+    border:                      0px solid;
+    border-radius:               15px;
+    border-color:                @cur;
+    background-color:            @cur;
+    text-color:                  @fgd;
+    cursor:                      pointer;
+}
+element-text {
+    font:                        "Iosevka Nerd Font Mono 26";
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+element selected.normal {
+    background-color:            @cya;
+    text-color:                  @bg;
+}

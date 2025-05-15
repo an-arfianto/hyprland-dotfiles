@@ -1,0 +1,63 @@
+[global]
+    monitor = 0
+    follow = none
+    width = 350
+    height =  (0, 200)
+    origin = top-center
+    alignment = "center"
+    vertical_alignment = "center"
+    ellipsize = "middle"
+    offset = "10x10"
+    padding = 20
+    horizontal_padding = 20
+    enable_recursive_icon_lookup = false
+    progress_bar = false
+    separator_height = 2
+    frame_width = 2
+    separator_color = "frame" 
+    corner_radius = 0 
+    transparency = 0 
+    gap_size = 8 
+    line_height = 0 
+    notification_limit = 0 
+    idle_threshold = 120 
+    history_length = 20 
+    show_age_threshold = 60 
+    markup = "full" 
+    font = "VictorMono Nerd Font 9" 
+    word_wrap = true
+    sort = true
+    shrink = false
+    sticky_history = false
+    ignore_newline = false 
+    show_indicators = true
+    stack_duplicates = true 
+    always_run_script = true 
+    hide_duplicate_count = false 
+    ignore_dbusclose = false 
+    force_xwayland = false 
+    force_xinerama = false 
+    mouse_left_click = "do_action" 
+    mouse_middle_click = "close_all" 
+    mouse_right_click = "close_current" 
+
+    background = "#26233a"
+    foreground = "#e0def4"
+    
+[urgency_low]
+    background = "#26273d"
+    highlight = "#31748f"
+    frame_color = "#31748f"
+    format = "<b><span foreground='#31748f'>%s</span></b>\n%b"
+
+[urgency_normal]
+    background = "#362e3c"
+    highlight = "#f6c177"
+    frame_color = "#f6c177"
+    format = "<b><span foreground='#f6c177'>%s</span></b>\n%b"
+
+[urgency_critical]
+    background = "#35263d"
+    highlight = "#eb6f92"
+    frame_color = "#eb6f92"
+    format = "<b><span foreground='#eb6f92'>%s</span></b>\n%b"

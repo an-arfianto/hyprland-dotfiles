@@ -1,0 +1,156 @@
+@import './rose-pine.css';
+
+* {
+  border: none;
+  border-radius: 0px;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 10.5px;
+  min-height: 15px;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0);
+}
+
+tooltip {
+  background: @base;
+  color: @text;
+  border: 2px solid @highlightHigh;
+}
+
+#backlight,
+#battery,
+#clock,
+#pulseaudio,
+#tray,
+#privacy,
+#workspaces,
+#temperature,
+#cpu,
+#memory {
+  opacity: 1;
+  margin: 3px 0;
+  color: @text;
+  background: @base;
+}
+
+#clock {
+  border-radius: 5px;
+  padding: 0 8px;
+  border: 1.5px solid @highlightHigh;
+}
+
+#temperature,
+#cpu,
+#memory {
+  padding: 0 8px;
+}
+
+#temperature {
+  border-radius: 0 5px 5px 0;
+  border-top: 1.5px solid @highlightHigh;
+  border-bottom: 1.5px solid @highlightHigh;
+  border-right: 1.5px solid @highlightHigh;
+}
+
+#cpu {
+  border-radius: 5px 0 0 5px;
+  border-top: 1.5px solid @highlightHigh;
+  border-bottom: 1.5px solid @highlightHigh;
+  border-left: 1.5px solid @highlightHigh;
+}
+
+#memory {
+  border: 1.5px solid @highlightHigh;
+}
+
+#backlight,
+#pulseaudio {
+  padding: 0 8px;
+}
+
+#pulseaudio {
+  border-radius: 0 5px 5px 0;
+  border: 1.5px solid @highlightHigh;
+}
+
+#backlight {
+  border-radius: 5px 0 0 5px;
+  border-top: 1.5px solid @highlightHigh;
+  border-bottom: 1.5px solid @highlightHigh;
+  border-left: 1.5px solid @highlightHigh;
+}
+
+#battery {
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1.5px solid @highlightHigh;
+}
+
+#battery.warning,
+#memory.high,
+#temperature.warning {
+  color: @gold;
+}
+
+#battery.critical,
+#memory.critical,
+#temperature.critical,
+#pulseaudio.muted {
+  color: @love;
+}
+
+#battery.charging {
+  color: @foam;
+}
+
+#battery.plugged {
+  color: @text;
+}
+
+#workspaces {
+  border-radius: 5px;
+  padding: 0 8px;
+  border: 1.5px solid @highlightHigh;
+}
+
+#workspaces button {
+  padding: 1px 4px;
+  color: @text;
+  transition: all 0.2s linear;
+}
+
+#workspaces button.empty {
+  color: @highlightHigh;
+  transition: all 0.2s linear;
+}
+
+#workspaces button.active {
+  color: @love;
+  transition: all 0.2s linear;
+}
+
+#workspaces button:hover {
+  background: transparent;
+}
+
+#privacy {
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1.5px solid @highlightHigh;
+}
+
+#tray {
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1.5px solid @highlightHigh;
+}
+
+#window {
+  color: @text;
+}
+
+#mpd.stopped {
+  opacity: 0;
+}

@@ -1,0 +1,119 @@
+#!/bin/bash
+
+theme="$HOME/.config/rofi/theme_switcher"
+confDir="$HOME/.config"
+themeDir="$HOME/.themes"
+
+# Light Theme Configuration
+light() {
+  light_theme="rose-pine-dawn"
+
+  # btop
+  sed -i "/^color_theme =/c\color_theme = ${confDir}/btop/themes/${light_theme}.theme" "${confDir}/btop/btop.conf"
+
+  # dunst
+  rm -rf "${confDir}/dunst/dunstrc"
+  ln -s "${confDir}/dunst/themes/${light_theme}" "${confDir}/dunst/dunstrc"
+
+  # kitty
+  kitty +kitten themes --reload-in=all Rosé Pine Dawn
+
+  # gtk
+  rm -rf "${confDir}/gtk-4.0"
+  ln -s "${themeDir}/${light_theme}/gtk-4.0" "${confDir}/gtk-4.0"
+  sed -i "/^source =/c\source = ${confDir}/hypr/themes/rose_pine_dawn.conf" "${confDir}/hypr/themes.conf"
+
+  # kvantum
+  sed -i "/^theme=/c\theme=${light_theme}-iris" "${confDir}/Kvantum/kvantum.kvconfig"
+
+  # qtct
+  sed -i "/^icon_theme=/c\icon_theme=${light_theme}-icons" "${confDir}/qt5ct/qt5ct.conf"
+  sed -i "/^icon_theme=/c\icon_theme=${light_theme}-icons" "${confDir}/qt6ct/qt6ct.conf"
+
+  # rofi
+  sed -i "/^@import/c\@import 'themes/${light_theme}.rasi'" "${confDir}/rofi/shared/colors.rasi"
+
+  # starship
+  sed -i "/^palette = /c\palette = '${light_theme}'" "${confDir}/starship/starship.toml"
+
+  # waybar
+  sed -i "/^@import/c\@import './${light_theme}.css';" "${confDir}/waybar/style.css"
+
+  # Reload applications
+  pkill waybar
+  waybar &
+  dunstctl reload
+  #hyprctl reload
+
+  # Notify
+  sleep 1
+  notify-send -u low -t 1000 "Light Mode Enabled"
+}
+
+# Dark Theme Configuration
+dark() {
+  dark_theme="rose-pine"
+
+  # btop
+  sed -i "/^color_theme =/c\color_theme = ${confDir}/btop/themes/${dark_theme}.theme" "${confDir}/btop/btop.conf"
+
+  # dunst
+  rm -rf "${confDir}/dunst/dunstrc"
+  ln -s "${confDir}/dunst/themes/${dark_theme}" "${confDir}/dunst/dunstrc"
+
+  # kitty
+  kitty +kitten themes --reload-in=all Rosé Pine
+
+  # gtk & hyprland theming
+  rm -rf "${confDir}/gtk-4.0"
+  ln -s "${themeDir}/${dark_theme}/gtk-4.0" "${confDir}/gtk-4.0"
+  sed -i "/^source =/c\source = ${confDir}/hypr/themes/rose_pine.conf" "${confDir}/hypr/themes.conf"
+
+  # kvantum
+  sed -i "/^theme=/c\theme=${dark_theme}-iris" "${confDir}/Kvantum/kvantum.kvconfig"
+
+  # qtct
+  sed -i "/^icon_theme=/c\icon_theme=${dark_theme}-icons" "${confDir}/qt5ct/qt5ct.conf"
+  sed -i "/^icon_theme=/c\icon_theme=${dark_theme}-icons" "${confDir}/qt6ct/qt6ct.conf"
+
+  # rofi
+  sed -i "/^@import/c\@import 'themes/${dark_theme}.rasi'" "${confDir}/rofi/shared/colors.rasi"
+
+  # starship
+  sed -i "/^palette = /c\palette = '${dark_theme}'" "${confDir}/starship/starship.toml"
+
+  # waybar
+  sed -i "/^@import/c\@import './${dark_theme}.css';" "${confDir}/waybar/style.css"
+
+  # Reload applications
+  pkill waybar
+  waybar &
+  dunstctl reload
+  # hyprctl reload
+
+  # Notify
+  sleep 1
+  notify-send -u low -t 1000 "Dark Mode Enabled"
+}
+
+# Rofi Theme Selection
+theme=$(
+  rofi -dmenu -theme ${theme}.rasi <<EOF
+Light
+Dark
+EOF
+)
+
+# Apply selected theme
+case "$theme" in
+"Light")
+  light
+  ;;
+"Dark")
+  dark
+  ;;
+*)
+  echo "Invalid theme selected"
+  exit 1
+  ;;
+esac

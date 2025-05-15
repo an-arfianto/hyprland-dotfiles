@@ -1,0 +1,145 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+@import                          "shared/colors.rasi"
+@import                          "shared/fonts.rasi"
+
+/*
+USE_ICON=YES
+*/
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       600px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      1px solid;
+    border-radius:               15px;
+    border-color:                @cur;
+    cursor:                      "default";
+    background-color:            @bg;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0px;
+    padding:                     0px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "message", "listbox" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     25px;
+    padding:                     125px 50px;
+    border:                      0px;
+    background-color:            transparent;
+    background-image:            url("~/Pictures/wallpaper/lofi-girl.jpg", width);
+    text-color:                  @fgd;
+    children:                    [ "dummy" ];
+}
+
+dummy{
+    background-color:            transparent;
+}
+
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px 20px;
+    padding:                     10px;
+    border-radius:               20px;
+    border-color:                @cya;
+    background-color:            @cur;
+    text-color:                  @fgd;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview -----*****/
+listbox {
+    margin:                      0 20px 20px;
+    background-color:            transparent;
+    children:                    [ "listview" ];
+
+  }
+listview {
+    enabled:                     true;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    spacing:                     20px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     20px;
+    spacing:                     0px;
+    margin:                      0px;
+    border:                      0px solid;
+    border-radius:               10px;
+    background-color:            transparent;
+    text-color:                  @fgd;
+    cursor:                      pointer;
+}
+element-text {
+    font:                        "Iosevka Nerd Font Mono 26";
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:            var(cur);
+    text-color:                  var(fgd);
+}
+element normal.urgent,
+element alternate.urgent,
+element selected.active {
+    background-color:            var(red);
+    text-color:                  var(bg);
+}
+element normal.active,
+element alternate.active,
+element selected.urgent {
+    background-color:            var(pur);
+    text-color:                  var(bg);
+}
+element selected.normal {
+    background-color:            var(cya);
+    text-color:                  var(bg);
+}
