@@ -14,41 +14,31 @@ $line_break\
 $character\
 """
 
-palette = 'rose-pine'
-
-[palettes.rose-pine]
-overlay = '#26233a'
-love = '#eb6f92'
-gold = '#f6c177'
-rose = '#ebbcba'
-pine = '#31748f'
-foam = '#9ccfd8'
-iris = '#c4a7e7'
-
-[palettes.rose-pine-dawn]
-overlay = '#f2e9e1'
-love = '#b4637a'
-gold = '#ea9d34'
-rose = '#d7827e'
-pine = '#286983'
-foam = '#56949f'
-iris = '#907aa9'
-
 [directory]
-format = '[  ](bg:gold fg:overlay)[ $path ](bg:overlay)'
-home_symbol = "~"
-truncation_symbol = "…/"
+format = '[](bold fg:purple)[ $path ]($style)[](bold fg:purple)'
+style = "bg:purple fg:black"
+home_symbol = " "
+truncation_symbol = "••/"
 truncation_length = 3
+
+[directory.substitutions]
+"Desktop" = "  "
+"Documents" = "  "
+"Downloads" = "  "
+"Music" = " 󰎈 "
+"Pictures" = "  "
+"Videos" = "  "
 
 [git_branch]
 symbol = ""
-format = '[ ❯ ](bold text)[ $symbol ](bg:pine fg:overlay)[ $branch ](bg:overlay)'
+format = '[ • ](bold fg:red)[](bold fg:green)[ $branch ]($style)'
+style = "bold bg:green fg:black"
 only_attached = true
 always_show_remote = false
 disabled = false
 
 [git_status]
-format = '[($ahead_behind)($all_status)](fg:foam bg:overlay)'
+format = '[($ahead_behind)($all_status)](bg:green fg:black)[](bold fg:green)'
 stashed = "*${count} "
 ahead = "⇡${count} "
 behind = "⇣${count} "
@@ -63,13 +53,15 @@ untracked = "?${count} "
 ignore_submodules = false
 
 [cmd_duration]
-min_time = 2000
-format = '[ ❯ ](bold text)[ 󱫑 ](bg:rose fg:overlay)[ $duration ](bg:overlay)'
+min_time = 1000
+format = '[ • ](bold red)[](bold fg:yellow)[ 󱫑 $duration ]($style)[](bold fg:yellow)'
+style = "bg:yellow fg:black"
 show_milliseconds = false
 
 [status]
 disabled = false
-format = '[ ❯ ](bold text)[ $symbol ](bg:love fg:overlay)[( $common_meaning)( $signal_name) ](bg:overlay fg:love)'
+format = '[ • ](bold red)[](bold fg:red)[ $symbol ]($style)[($common_meaning)($signal_name) ]($style)[](bold fg:red)'
+style = "bg:red fg:black"
 map_symbol = true
 pipestatus = true
 symbol = '󰅙'
@@ -85,6 +77,5 @@ disabled = false
 
 [character]
 disabled = false
-success_symbol = '[❯❯❯](bold fg:pine)'
-error_symbol = '[❯❯❯](bold fg:love)'
-vimcmd_symbol = '[❮❮❮](bold fg:iris)'
+success_symbol = "[󱞪](bold fg:green)"
+error_symbol = "[󱞪](bold fg:red)"
