@@ -12,7 +12,7 @@ while true; do
   for notify_level in ${notify_levels[@]}; do
     if [ $bat_lvl -le $notify_level ]; then
       if [ $notify_level -lt $last_notify ]; then
-        notify-send -i ~/.icons/Catppuccin-SE/32x32/status/dialog-warning.svg -u critical "Low Battery" "$bat_lvl% battery remaining."
+        notify-send -u critical "Low Battery" "$bat_lvl% battery remaining."
         last_notify=$bat_lvl
       fi
     fi
