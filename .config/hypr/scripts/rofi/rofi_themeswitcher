@@ -15,8 +15,8 @@ light() {
   rm -rf "${confDir}/dunst/dunstrc"
   ln -s "${confDir}/dunst/themes/${light_theme}" "${confDir}/dunst/dunstrc"
 
-  # kitty
-  kitty +kitten themes --reload-in=all Rosé Pine Dawn
+  # foot
+  sed -i "/^include=/c\include=${confDir}/foot/themes/${light_theme}.ini" "${confDir}/foot/foot.ini"
 
   # gtk
   rm -rf "${confDir}/gtk-4.0"
@@ -61,8 +61,8 @@ dark() {
   rm -rf "${confDir}/dunst/dunstrc"
   ln -s "${confDir}/dunst/themes/${dark_theme}" "${confDir}/dunst/dunstrc"
 
-  # kitty
-  kitty +kitten themes --reload-in=all Rosé Pine
+  # foot
+  sed -i "/^include=/c\include=${confDir}/foot/themes/${dark_theme}.ini" "${confDir}/foot/foot.ini"
 
   # gtk & hyprland theming
   rm -rf "${confDir}/gtk-4.0"
