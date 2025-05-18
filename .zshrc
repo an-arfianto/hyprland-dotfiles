@@ -8,7 +8,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export ZSH="$HOME/.oh-my-zsh"
 
 # List of plugins used
-plugins=( git zsh-256color zsh-autosuggestions zsh-syntax-highlighting )
+plugins=( git zsh-256color zsh-autosuggestions zsh-syntax-highlighting fzf-tab )
 source $ZSH/oh-my-zsh.sh
 
 # Helpful aliases
@@ -25,22 +25,30 @@ eval "$(atuin init zsh)"
 # Config zoxide
 eval "$(zoxide init zsh)"
 
-
-eval "$(tv init zsh)"
 # Config fzf
 # source <(fzf --zsh)
-
-# eval "$(tv init zsh)"
-export FZF_DEFAULT_OPTS="
-	--color=fg:#908caa,bg:#191724,hl:#ebbcba \
-	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba \
-	--color=border:#403d52,header:#31748f,gutter:#191724 \
-	--color=spinner:#f6c177,info:#9ccfd8 \
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa \
-    --border --multi"
-#
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-export FZF_ALT_C_OPTS="--style full --preview 'eza --icons=always --tree --color=always {} | head -200'"
+export FZF_DEFAULT_OPTS="	--color=fg:white,bg:-1,hl:grey \
+	--color=fg+:white,bg+:-1,hl+:black \
+	--color=border:blue,header:green,gutter:red \
+	--color=spinner:yellow,info:blue \
+	--color=pointer:magenta,marker:red,prompt:grey --border --multi"
+zstyle ':completion:*' menu select
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list \
+	'm:{a-zA-Z}={A-Za-z}' \
+	'+r:|[._-]=* r:|=*' \
+	'+l:|=*'
+zstyle ':fzf-tab:*' fzf-flags --style=full --height=90% --pointer '>' \
+  --color 'pointer:green:bold,bg+:-1:,fg+:green:bold,info:blue:bold,marker:yellow:bold,hl:gray:bold,hl+:yellow:bold' \
+  --input-label ' Search ' --color 'input-border:blue,input-label:blue:bold' \
+  --list-label ' Results ' --color 'list-border:green,list-label:green:bold' \
+  --preview-label ' Preview ' --color 'preview-border:magenta,preview-label:magenta:bold'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=always --color=always -a $realpath'
+zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --icons=always --color=always -a $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always $realpath'
+zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
+zstyle ':fzf-tab:*' accept-line enter
 
 # FZF for tmux
 export FZF_TMUX_OPTS=" -p70%,60% "
