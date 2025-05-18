@@ -150,8 +150,9 @@ keymap = [
 	{ on = "<F1>", run = "help", desc = "Open help" },
 	
 	# Extra Plugins
-	{ on = [ "c", "a", ], run = "plugin compress",     desc = "Archive selected files" },
-	{ on = "T",           run = "plugin hide-preview", desc = "Hide or show the preview" },
+	{ on = [ "C", ], run = "plugin ouch 7z", desc = "Compress with ouch" },
+	{ on = [ "T", ], run = "plugin toggle-pane min-preview", desc = "Show or hide the preview pane" },
+	{ on = [ "M", ], run = "plugin mount" },
 ]
 
 [tasks]
